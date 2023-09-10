@@ -1,0 +1,17 @@
+# 使用官方 Node.js 镜像作为基础镜像
+FROM node:14
+# 镜像作者
+MAINTAINER FuDan_RS009
+# 设置时区
+ENV TimeZone=Asia/Shanghai
+# 设定工作目录
+RUN mkdir -p /app/rsfrontend
+WORKDIR /app/rsfrontend
+# 复制 package.json 和 package-lock.json 到工作目录
+COPY package*.json ./
+# 安装项目依赖
+RUN npm install
+# 复制项目文件到工作目录
+COPY . .
+# 构建应用
+CMD ["npm", "run", "serve"]

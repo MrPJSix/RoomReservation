@@ -1,0 +1,18 @@
+# 建立 python3.10 环境
+FROM python:3.10
+# 镜像作者
+MAINTAINER FuDan_RS009
+# 设置 python 环境变量
+ENV PYTHONUNBUFFERED 1
+# 设置pip源为国内源
+COPY pip.conf /root/.pip/pip.conf
+# 在容器内创建文件夹并设置工作目录
+RUN mkdir -p RSBackend/
+WORKDIR RSBackend/
+ADD . .
+# 将当前目录文件加入到容器工作目录中
+RUN pip install -r requirements.txt
+
+CMD ["py", "manage.py", "makemigrations"]
+CMD ["py", "manage.py", "migrate"]
+CMD [ "python", "manage.py", "runserver", "0.0.0.0:8000"]

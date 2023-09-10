@@ -1,0 +1,16 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1857384",
+      "name": "calender",
+      "font_class": "calender",
+      "unicode": "e56b",
+      "unicode_decimal": 58731
+    }
+  ]
+}

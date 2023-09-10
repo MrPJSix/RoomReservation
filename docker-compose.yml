@@ -1,0 +1,22 @@
+version: '1.0'
+services:
+  django-backend:
+    build:
+      context: ./RSBackend
+    ports:
+      - 8000:8000
+    restart: always
+    networks:
+      - my-net
+  vue-frontend:
+    build:
+      context: ./RSFrontend/user_frontend  # 前端代码目录的路径
+    ports:
+      - 8080:8080
+    restart: always
+    networks:
+      - my-net
+
+networks:
+  my-net:
+    external: true
